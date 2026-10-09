@@ -89,7 +89,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </header>
       <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
       <footer className="mx-auto max-w-6xl px-4 pb-8 text-xs text-muted-foreground">
-        CityLens demo — all places, scores, traffic, weather and reports are synthetic sample data for a fictional city. Nothing here is live or a safety guarantee.
+        UrbanPulse demo — all places, scores, traffic, weather and reports are synthetic sample data for a fictional city. Nothing here is live or a safety guarantee.
       </footer>
     </div>
   );

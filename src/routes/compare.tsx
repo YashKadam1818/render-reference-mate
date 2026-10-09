@@ -6,9 +6,9 @@ import { EmptyState, PageHeader, SyntheticBadge } from "@/components/ui-kit";
 export const Route = createFileRoute("/compare")({
   head: () => ({
     meta: [
-      { title: "Compare Places — CityLens" },
+      { title: "Compare Places — UrbanPulse" },
       { name: "description", content: "Compare places side by side with a transparent score breakdown." },
-      { property: "og:title", content: "Compare Places — CityLens" },
+      { property: "og:title", content: "Compare Places — UrbanPulse" },
       { property: "og:description", content: "Side-by-side comparison with explained scores." },
     ],
   }),
