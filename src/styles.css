@@ -51,6 +51,10 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -98,38 +102,27 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --background: oklch(0.17 0.02 230);
+  --foreground: oklch(0.96 0.01 200);
+  --card: oklch(0.21 0.025 230);
+  --card-foreground: oklch(0.96 0.01 200);
+  --popover: oklch(0.21 0.025 230);
+  --popover-foreground: oklch(0.96 0.01 200);
+  --primary: oklch(0.82 0.15 175);
+  --primary-foreground: oklch(0.18 0.03 200);
+  --secondary: oklch(0.28 0.03 230);
+  --secondary-foreground: oklch(0.96 0.01 200);
+  --muted: oklch(0.26 0.025 230);
+  --muted-foreground: oklch(0.72 0.03 220);
+  --accent: oklch(0.8 0.15 75);
+  --accent-foreground: oklch(0.2 0.03 60);
+  --destructive: oklch(0.7 0.19 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --success: oklch(0.78 0.16 150);
+  --warning: oklch(0.82 0.15 80);
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.82 0.15 175);
 }
 
 @layer base {
@@ -141,4 +134,24 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+@layer base {
+  body { font-family: var(--font-sans); background-image: radial-gradient(circle at 80% -10%, oklch(0.82 0.15 175 / 12%), transparent 45%); }
+}
+@layer components {
+  .panel { @apply rounded-xl border bg-card p-5 text-card-foreground; }
+  .panel-hover { @apply transition hover:-translate-y-0.5 hover:border-primary/50; }
+  .hero { @apply rounded-2xl border bg-card p-8 sm:p-12; background-image: linear-gradient(135deg, oklch(0.82 0.15 175 / 14%), transparent 60%); }
+  .badge-synthetic { @apply inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent; }
+  .input { @apply w-full rounded-lg border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-ring; }
+  .btn-primary { @apply inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:opacity-90 disabled:opacity-50; }
+  .btn-outline { @apply inline-flex items-center justify-center rounded-lg border border-primary/50 px-4 py-2 text-sm font-semibold text-primary transition hover:bg-primary/10; }
+  .btn-ghost { @apply inline-flex items-center justify-center rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-foreground; }
+  .nav-link { @apply whitespace-nowrap rounded-md px-3 py-1.5 text-sm text-muted-foreground transition hover:text-foreground; }
+  .nav-link-active { @apply bg-secondary text-foreground; }
+  .status { @apply rounded px-2 py-0.5 font-semibold capitalize; }
+  .status-open { @apply bg-destructive/15 text-destructive; }
+  .status-in-review { @apply bg-warning/15 text-warning; }
+  .status-resolved { @apply bg-success/15 text-success; }
 }
