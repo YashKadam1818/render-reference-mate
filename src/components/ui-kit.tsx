@@ -77,7 +77,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen">
       <header className="sticky top-0 z-20 border-b bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3">
-          <Link to="/" className="shrink-0 font-display text-xl font-bold">City<span className="text-primary">Lens</span></Link>
+          <Link to="/" className="shrink-0 font-display text-xl font-bold">Urban<span className="text-primary">Pulse</span></Link>
           <nav className="-mx-1 flex min-w-0 flex-1 gap-1 overflow-x-auto">
             {NAV.map((n) => (
               <Link key={n.to} to={n.to} className="nav-link" activeProps={{ className: "nav-link nav-link-active" }} activeOptions={{ exact: n.to === "/" }}>
