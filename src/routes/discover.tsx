@@ -6,9 +6,9 @@ import { EmptyState, Meter, PageHeader, PlaceCard, SyntheticBadge } from "@/comp
 export const Route = createFileRoute("/discover")({
   head: () => ({
     meta: [
-      { title: "Discover Places — CityLens" },
+      { title: "Discover Places — UrbanPulse" },
       { name: "description", content: "Search and filter attractions, restaurants, hotels and landmarks." },
-      { property: "og:title", content: "Discover Places — CityLens" },
+      { property: "og:title", content: "Discover Places — UrbanPulse" },
       { property: "og:description", content: "Search and filter places by category and budget." },
     ],
   }),

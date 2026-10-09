@@ -6,9 +6,9 @@ import { EmptyState, PageHeader, PlaceCard, SyntheticBadge } from "@/components/
 export const Route = createFileRoute("/recommend")({
   head: () => ({
     meta: [
-      { title: "Recommendations — CityLens" },
+      { title: "Recommendations — UrbanPulse" },
       { name: "description", content: "Get place recommendations by budget and category, with reasons." },
-      { property: "og:title", content: "Recommendations — CityLens" },
+      { property: "og:title", content: "Recommendations — UrbanPulse" },
       { property: "og:description", content: "Explained place recommendations by budget and category." },
     ],
   }),

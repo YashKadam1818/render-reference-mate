@@ -6,9 +6,9 @@ import { Panel, SyntheticBadge } from "@/components/ui-kit";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "CityLens — Explore Smarter, Navigate Better" },
+      { title: "UrbanPulse — Explore Smarter, Navigate Better" },
       { name: "description", content: "Discover, compare and understand city places with transparent scores and citizen reports." },
-      { property: "og:title", content: "CityLens — Explore Smarter, Navigate Better" },
+      { property: "og:title", content: "UrbanPulse — Explore Smarter, Navigate Better" },
       { property: "og:description", content: "Discover, compare and understand city places with transparent scores." },
     ],
   }),
@@ -29,7 +29,7 @@ function Dashboard() {
       <section className="hero">
         <SyntheticBadge>Demo City · synthetic data</SyntheticBadge>
         <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">Explore smarter,<br />navigate better.</h1>
-        <p className="mt-3 max-w-xl text-muted-foreground">CityLens helps you find places, compare them honestly and stay aware of citizen-reported issues.</p>
+        <p className="mt-3 max-w-xl text-muted-foreground">UrbanPulse helps you find places, compare them honestly and stay aware of citizen-reported issues.</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link to="/discover" className="btn-primary">Start exploring</Link>
           <Link to="/recommend" className="btn-outline">Get recommendations</Link>

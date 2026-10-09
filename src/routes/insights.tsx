@@ -8,9 +8,9 @@ import { EmptyState, PageHeader, Panel, SyntheticBadge } from "@/components/ui-k
 export const Route = createFileRoute("/insights")({
   head: () => ({
     meta: [
-      { title: "City Insights — CityLens" },
+      { title: "City Insights — UrbanPulse" },
       { name: "description", content: "Sample traffic, weather and citizen-reported hazards." },
-      { property: "og:title", content: "City Insights — CityLens" },
+      { property: "og:title", content: "City Insights — UrbanPulse" },
       { property: "og:description", content: "Sample traffic, weather and citizen-reported hazards." },
     ],
   }),
