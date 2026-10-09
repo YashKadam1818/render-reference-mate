@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as DiscoverRouteImport } from './routes/discover'
 import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as MapRouteImport } from './routes/map'
 import { Route as RecommendRouteImport } from './routes/recommend'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const InsightsRoute = InsightsRouteImport.update({
   path: '/insights',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MapRoute = MapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RecommendRoute = RecommendRouteImport.update({
   id: '/recommend',
   path: '/recommend',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/compare': typeof CompareRoute
   '/discover': typeof DiscoverRoute
   '/insights': typeof InsightsRoute
+  '/map': typeof MapRoute
   '/recommend': typeof RecommendRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/compare': typeof CompareRoute
   '/discover': typeof DiscoverRoute
   '/insights': typeof InsightsRoute
+  '/map': typeof MapRoute
   '/recommend': typeof RecommendRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,23 @@ export interface FileRoutesById {
   '/compare': typeof CompareRoute
   '/discover': typeof DiscoverRoute
   '/insights': typeof InsightsRoute
+  '/map': typeof MapRoute
   '/recommend': typeof RecommendRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/compare' | '/discover' | '/insights' | '/recommend'
+  fullPaths:
+    '/' | '/compare' | '/discover' | '/insights' | '/map' | '/recommend'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/compare' | '/discover' | '/insights' | '/recommend'
-  id: '__root__' | '/' | '/compare' | '/discover' | '/insights' | '/recommend'
+  to: '/' | '/compare' | '/discover' | '/insights' | '/map' | '/recommend'
+  id:
+    | '__root__'
+    | '/'
+    | '/compare'
+    | '/discover'
+    | '/insights'
+    | '/map'
+    | '/recommend'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +93,7 @@ export interface RootRouteChildren {
   CompareRoute: typeof CompareRoute
   DiscoverRoute: typeof DiscoverRoute
   InsightsRoute: typeof InsightsRoute
+  MapRoute: typeof MapRoute
   RecommendRoute: typeof RecommendRoute
 }
 
@@ -109,6 +127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/map': {
+      id: '/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof MapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recommend': {
       id: '/recommend'
       path: '/recommend'
@@ -124,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareRoute: CompareRoute,
   DiscoverRoute: DiscoverRoute,
   InsightsRoute: InsightsRoute,
+  MapRoute: MapRoute,
   RecommendRoute: RecommendRoute,
 }
 export const routeTree = rootRouteImport

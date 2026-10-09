@@ -19,6 +19,7 @@ function Dashboard() {
   const { reports, compare } = useStore();
   const open = reports.filter((r) => r.status !== "resolved").length;
   const cards = [
+    { to: "/map", title: "Explore Map", text: "Interactive city exploration map with places and citizen reports.", stat: "Interactive" },
     { to: "/discover", title: "Discover Places", text: "Search and filter attractions, food, hotels and landmarks.", stat: `${PLACES.length} places` },
     { to: "/compare", title: "Compare Places", text: "Side-by-side with a transparent score breakdown.", stat: `${compare.length} selected` },
     { to: "/insights", title: "City Insights", text: "Sample traffic, weather and citizen hazard reports.", stat: `${open} open reports` },
@@ -31,11 +32,12 @@ function Dashboard() {
         <h1 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-5xl">Explore smarter,<br />navigate better.</h1>
         <p className="mt-3 max-w-xl text-muted-foreground">UrbanPulse helps you find places, compare them honestly and stay aware of citizen-reported issues.</p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link to="/discover" className="btn-primary">Start exploring</Link>
-          <Link to="/recommend" className="btn-outline">Get recommendations</Link>
+          <Link to="/map" className="btn-primary">Explore map</Link>
+          <Link to="/discover" className="btn-outline">Browse places</Link>
+          <Link to="/recommend" className="btn-ghost">Get recommendations</Link>
         </div>
       </section>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {cards.map((c) => (
           <Link key={c.to} to={c.to} className="panel panel-hover block">
             <p className="text-xs uppercase tracking-wider text-primary">{c.stat}</p>

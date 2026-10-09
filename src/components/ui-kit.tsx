@@ -66,6 +66,7 @@ export function PlaceCard({ place, onDetails }: { place: Place; onDetails?: () =
 const NAV = [
   { to: "/", label: "Dashboard" },
   { to: "/discover", label: "Discover" },
+  { to: "/map", label: "Explore Map" },
   { to: "/compare", label: "Compare" },
   { to: "/insights", label: "City Insights" },
   { to: "/recommend", label: "Recommend" },
