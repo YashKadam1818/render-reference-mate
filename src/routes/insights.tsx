@@ -117,11 +117,11 @@ function Insights() {
               <select className="input mt-1" value={form.area} onChange={(e) => setForm({ ...form, area: e.target.value })}>
                 {AREAS.map((a) => <option key={a}>{a}</option>)}
               </select>
-              {errors.area && <span className="text-xs text-destructive">{errors.area}</span>}
+              {errors["area"] && <span className="text-xs text-destructive">{errors["area"]}</span>}
             </label>
             <label className="block text-sm">Description
               <textarea className="input mt-1 min-h-24" maxLength={300} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
-              {errors.description && <span className="text-xs text-destructive">{errors.description}</span>}
+              {errors["description"] && <span className="text-xs text-destructive">{errors["description"]}</span>}
             </label>
             <button className="btn-primary w-full" disabled={submitting}>{submitting ? "Submitting…" : "Submit report"}</button>
             {done && <p className="text-sm text-success">Report added to the list.</p>}

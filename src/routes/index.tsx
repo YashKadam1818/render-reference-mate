@@ -52,7 +52,7 @@ function Dashboard() {
         </Panel>
         <Panel>
           <div className="flex items-center justify-between"><h2 className="font-display font-semibold">Latest report</h2><SyntheticBadge /></div>
-          {(reports[0] ?? SEED_REPORTS[0]) && <p className="mt-3 text-sm">{(reports[0] ?? SEED_REPORTS[0]).description}</p>}
+          <p className="mt-3 text-sm">{reports[0]?.description ?? SEED_REPORTS[0]?.description ?? "No reports yet."}</p>
           <Link to="/insights" className="mt-3 inline-block text-sm text-primary">View all reports →</Link>
         </Panel>
       </div>
