@@ -52,7 +52,7 @@ function Compare() {
               <Row label="Accessibility" vals={selected.map((p) => `${p.accessibility}/5 (synthetic)`)} />
               <Row label="Safety info" vals={selected.map((p) => p.safetyNote ?? "No information available")} />
               {(["rating", "cleanliness", "accessibility", "affordability"] as const).map((k) => (
-                <Row key={k} label={`${k[0].toUpperCase() + k.slice(1)} pts (×${WEIGHTS[k]})`}
+                <Row key={k} label={`${k.charAt(0).toUpperCase() + k.slice(1)} pts (×${WEIGHTS[k]})`}
                   vals={selected.map((p) => { const s = scorePlace(p); return `${s[k].toFixed(0)} × ${WEIGHTS[k]} = ${(s[k] * WEIGHTS[k]).toFixed(1)}`; })} muted />
               ))}
               <tr className="border-t bg-secondary font-semibold"><td className="p-3">Total score / 100</td>{selected.map((p) => <td key={p.id} className="p-3 text-lg">{scorePlace(p).total.toFixed(1)}</td>)}</tr>
