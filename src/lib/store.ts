@@ -15,15 +15,29 @@ function set(next: Partial<State>) {
   listeners.forEach((l) => l());
 }
 
+const STATUSES = ["open", "in review", "resolved"];
+// Saved data may be from an older version or edited; drop entries that would crash rendering.
+function isValidReport(r: unknown): r is HazardReport {
+  if (!r || typeof r !== "object") return false;
+  const o = r as Record<string, unknown>;
+  return (
+    typeof o["id"] === "string" && typeof o["category"] === "string" && typeof o["area"] === "string" &&
+    typeof o["description"] === "string" && typeof o["source"] === "string" &&
+    typeof o["status"] === "string" && STATUSES.includes(o["status"]) &&
+    typeof o["timestamp"] === "string" && !Number.isNaN(Date.parse(o["timestamp"]))
+  );
+}
+
 function hydrate() {
   if (state.hydrated) return;
   try {
     const raw = localStorage.getItem(KEY);
     const parsed = raw ? JSON.parse(raw) : null;
+    const saved = Array.isArray(parsed?.reports) ? parsed.reports.filter(isValidReport) : [];
     set({
       hydrated: true,
-      compare: Array.isArray(parsed?.compare) ? parsed.compare : [],
-      reports: Array.isArray(parsed?.reports) ? parsed.reports : SEED_REPORTS,
+      compare: Array.isArray(parsed?.compare) ? parsed.compare.filter((x: unknown) => typeof x === "string") : [],
+      reports: saved.length > 0 ? saved : SEED_REPORTS,
     });
   } catch {
     set({ hydrated: true });
